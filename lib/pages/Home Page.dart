@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,8 +18,8 @@ class _HomePageState extends State<HomePage> {
         body: Column(
           children: [
             //heading
-            Padding(
-              padding: const EdgeInsets.all(25.0),
+            const Padding(
+              padding: EdgeInsets.all(25.0),
               child: Text(
                 'Notes',
                 style: TextStyle(
@@ -29,7 +30,14 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // list of notes
-            
+            CupertinoListSection.insetGrouped(
+              children: [
+                CupertinoListTile(title: Text('data')),
+                CupertinoListTile(title: Text('data')),
+                CupertinoListTile(title: Text('data')),
+                CupertinoListTile(title: Text('data')),
+              ],
+            ),
           ],
         ),
       ),
