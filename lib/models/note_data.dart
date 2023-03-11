@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
+
 import 'note.dart';
 
-class NoteData {
+class NoteData extends ChangeNotifier {
   // overall list of notes
   List<Note> allNotes = [
     //default first note
@@ -15,6 +17,7 @@ class NoteData {
   // add a new note
   void addNewNote(Note note) {
     allNotes.add(note);
+    notifyListeners();
   }
 
   //update note
@@ -26,10 +29,12 @@ class NoteData {
         allNotes[i].text = text;
       }
     }
+    notifyListeners();
   }
 
   // delete note
   void deleteNote(Note note) {
     allNotes.remove(note);
+    notifyListeners();
   }
 }
