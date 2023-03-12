@@ -1,10 +1,17 @@
 import 'package:apple_note_app/models/note_data.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/Home Page.dart';
 
-void main() {
+void main() async {
+  // initialize hive
+  await Hive.initFlutter();
+
+  // open a hive box
+  await Hive.openBox('note_database');
   runApp(const MyApp());
 }
 
