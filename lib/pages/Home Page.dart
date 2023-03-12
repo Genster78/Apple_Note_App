@@ -36,10 +36,15 @@ class _HomePageState extends State<HomePage> {
       MaterialPageRoute(
         builder: (context) => EditingNotePage(
           note: note,
-          isNewNote: false,
+          isNewNote: isNewNote,
         ),
       ),
     );
+  }
+
+  //delete note
+  void deleteNote(Note note) {
+    Provider.of<NoteData>(context, listen: false).deleteNote(note);
   }
 
   @override
@@ -77,6 +82,7 @@ class _HomePageState extends State<HomePage> {
                 value.getAllNotes().length,
                 (index) => CupertinoListTile(
                   title: Text(value.getAllNotes()[index].text),
+                  onTap: () =>goToNotePage(value.getAllNotes()[index], false),
                 ),
               ),
             ),
