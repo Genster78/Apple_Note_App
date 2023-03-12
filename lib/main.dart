@@ -11,7 +11,8 @@ void main() async {
   await Hive.initFlutter();
 
   // open a hive box
-  await Hive.openBox('note_database');
+  final data = await Hive.openBox('note_database');
+  
   runApp(const MyApp());
 }
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => NoteData(),
       builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,

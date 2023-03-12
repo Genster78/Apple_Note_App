@@ -67,7 +67,7 @@ class _EditingNotePageState extends State<EditingNotePage> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back, color: Colors.black,),
           onPressed: () {
             // it's a new note
             if (widget.isNewNote && !_controller.document.isEmpty()) {

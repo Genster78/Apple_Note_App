@@ -40,11 +40,18 @@ dependencies:
   flutter_quill: ^6.4.4
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.12.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "Assets/Icons/note_app.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

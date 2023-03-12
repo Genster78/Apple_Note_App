@@ -4,7 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 
 class HiveDatabase {
   // reference our hive box
-  final _myBox = Hive.box('note database');
+  final _myBox = Hive.box('note_database');
 
   // load notes
   List<Note> loadNotes() {
@@ -20,6 +20,11 @@ class HiveDatabase {
         // add to list
         saveNotesFormatted.add(individualNote);
       }
+    } else {
+      //default first note
+      saveNotesFormatted.add(
+        Note(id: 0, text: 'First Note'),
+      );
     }
 
     return saveNotesFormatted;

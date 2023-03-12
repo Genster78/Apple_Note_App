@@ -1,14 +1,21 @@
+import 'package:apple_note_app/data/hive_database.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'note.dart';
 
 class NoteData extends ChangeNotifier {
+  // hive database
+  final db = HiveDatabase();
+
+
   // overall list of notes
   List<Note> allNotes = [
-    //default first note
-    Note(id: 0, text: 'First Note'),
-    Note(id: 1, text: 'Second Note'),
   ];
+
+  // initialize list
+  void initializeNotes() {
+    allNotes = db.loadNotes();
+  }
 
   //get notes
   List<Note> getAllNotes() {
