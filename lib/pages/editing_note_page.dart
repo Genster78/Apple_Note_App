@@ -65,9 +65,12 @@ class _EditingNotePageState extends State<EditingNotePage> {
       backgroundColor: CupertinoColors.systemGroupedBackground,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.grey.withOpacity(0.2),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black,),
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
           onPressed: () {
             // it's a new note
             if (widget.isNewNote && !_controller.document.isEmpty()) {
@@ -85,36 +88,35 @@ class _EditingNotePageState extends State<EditingNotePage> {
       body: Column(
         children: [
           //tool bar
-          Center(
-            child: QuillToolbar.basic(
-              controller: _controller,
-              showAlignmentButtons: false,
-              showBackgroundColorButton: false,
-              showCenterAlignment: false,
-              showColorButton: false,
-              showCodeBlock: false,
-              showDirection: false,
-              showFontFamily: false,
-              showDividers: false,
-              showBoldButton: false,
-              showClearFormat: false,
-              showFontSize: false,
-              showHeaderStyle: false,
-              showIndent: false,
-              showInlineCode: false,
-              showItalicButton: false,
-              showJustifyAlignment: false,
-              showLeftAlignment: false,
-              showLink: false,
-              showListBullets: false,
-              showListCheck: false,
-              showListNumbers: false,
-              showQuote: false,
-              showRightAlignment: false,
-              showSearchButton: false,
-              showSmallButton: false,
-              showStrikeThrough: false,
-              showUnderLineButton: false,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+            child: Center(
+              child: QuillToolbar.basic(
+                controller: _controller,
+                showAlignmentButtons: true,
+                showBackgroundColorButton: false,
+                showColorButton: false,
+                showCodeBlock: false,
+                showDirection: true,
+                showFontFamily: false,
+                showDividers: true,
+                showBoldButton: true,
+                showClearFormat: false,
+                showFontSize: true,
+                showHeaderStyle: true,
+                showIndent: false,
+                showInlineCode: false,
+                showItalicButton: true,
+                showLink: false,
+                showListBullets: true,
+                showListCheck: true,
+                showListNumbers: true,
+                showQuote: false,
+                showSearchButton: false,
+                showSmallButton: false,
+                showStrikeThrough: false,
+                showUnderLineButton: true,
+              ),
             ),
           ),
           Expanded(

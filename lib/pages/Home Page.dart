@@ -64,55 +64,74 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.grey.shade300,
           child: const Icon(
             Icons.add,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //heading
-            const Padding(
-              padding: EdgeInsets.only(left: 25.0, top: 75),
-              child: Text(
-                'Notes',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //heading
+              Container(
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: Colors.white70,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 40,
+                        offset: Offset(1, 5)),
+                  ],
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 25.0, top: 25, bottom: 25),
+                  child: Text(
+                    'Notes',
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
-            ),
+              SizedBox(height: 10),
 
-            // list of notes
+              // list of notes
 
-            value.getAllNotes().length == 0
-                ? Padding(
-                    padding: const EdgeInsets.only(top: 50),
-                    child: Center(
-                      child: Text(
-                        'Nothing here',
-                        style: TextStyle(
-                          color: Colors.grey[400],
+              value.getAllNotes().length == 0
+                  ? Padding(
+                      padding: const EdgeInsets.only(top: 50),
+                      child: Center(
+                        child: Text(
+                          'Nothing here',
+                          style: TextStyle(
+                            color: Colors.grey[400],
+                          ),
                         ),
                       ),
-                    ),
-                  )
-                : CupertinoListSection.insetGrouped(
-                    children: List.generate(
-                      value.getAllNotes().length,
-                      (index) => CupertinoListTile(
-                        title: Text(value.getAllNotes()[index].text),
-                        onTap: () =>
-                            goToNotePage(value.getAllNotes()[index], false),
-                        trailing: IconButton(
-                          icon: Icon(Icons.delete),
-                          onPressed: () => deleteNote(
-                            value.getAllNotes()[index],
+                    )
+                  : CupertinoListSection.insetGrouped(
+                      children: List.generate(
+                        value.getAllNotes().length,
+                        (index) => CupertinoListTile(
+                          title: Text(value.getAllNotes()[index].text),
+                          onTap: () =>
+                              goToNotePage(value.getAllNotes()[index], false),
+                          trailing: IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () => deleteNote(
+                              value.getAllNotes()[index],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-          ],
+            ],
+          ),
         ),
       ),
     );
