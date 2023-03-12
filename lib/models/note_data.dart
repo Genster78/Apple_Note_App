@@ -6,7 +6,8 @@ class NoteData extends ChangeNotifier {
   // overall list of notes
   List<Note> allNotes = [
     //default first note
-    Note(id: 0, text: 'First Note')
+    Note(id: 0, text: 'First Note'),
+    Note(id: 1, text: 'First Note'),
   ];
 
   //get notes
